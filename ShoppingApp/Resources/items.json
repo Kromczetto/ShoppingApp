@@ -1,0 +1,114 @@
+{
+    "items": [
+        {
+            "productId": "a1b2c3d4-e5f6-7890-1234-567890abcdef",
+            "description": "Organic Fair Trade Coffee Beans",
+            "price": "15.99 £",
+            "promotions": [],
+            "isFavorite": true,
+            "inStock": 2,
+            "image": "coffee.png"
+        },
+        {
+            "productId": "f0e9d8c7-b6a5-4321-fedc-ba9876543210",
+            "description": "Stainless Steel Water Bottle",
+            "price": "22.50 £",
+            "promotions": [
+                {
+                    "type": "discount",
+                    "value": "5.00 £"
+                }
+            ],
+            "isFavorite": false,
+            "inStock": 120,
+            "image": "bottle.png"
+        },
+        {
+            "productId": "19283746-5a4b-3c2d-e1f0-987654321abc",
+            "description": "Soft Cotton T-Shirt - Blue",
+            "price": "18.00 £",
+            "promotions": [],
+            "isFavorite": true,
+            "inStock": 30,
+            "image": "shirt.png"
+        },
+        {
+            "productId": "bcdefa01-2345-6789-0abc-def012345678",
+            "description": "Wireless Bluetooth Headphones",
+            "price": "89.99 £",
+            "promotions": [
+                {
+                    "type": "percentage",
+                    "value": "10%"
+                }
+            ],
+            "isFavorite": false,
+            "inStock": 75,
+            "image": "headphones.png"
+        },
+        {
+            "productId": "98765432-10fe-dcba-9012-34567890abcd",
+            "description": "Dark Chocolate Sea Salt Bar",
+            "price": "3.50 £",
+            "promotions": [],
+            "isFavorite": true,
+            "inStock": 200,
+            "image": "chocolate.png"
+        },
+        {
+            "productId": "01234567-89ab-cdef-0123-456789abcdef",
+            "description": "Reusable Shopping Bag",
+            "price": "7.99 £",
+            "promotions": [],
+            "isFavorite": false,
+            "inStock": 80,
+            "image": "bag.png"
+        },
+        {
+            "productId": "fedcba98-7654-3210-fedc-ba9876543210",
+            "description": "Organic Green Tea",
+            "price": "9.50 £",
+            "promotions": [
+                {
+                    "type": "discount",
+                    "value": "2.00 £"
+                }
+            ],
+            "isFavorite": true,
+            "inStock": 150,
+            "image": "tea.png"
+        },
+        {
+            "productId": "abcdef01-2345-6789-abcd-ef0123456789",
+            "description": "Leather Wallet",
+            "price": "35.00 £",
+            "promotions": [],
+            "isFavorite": false,
+            "inStock": 45,
+            "image": "wallet.png"
+        },
+        {
+            "productId": "987abcde-f012-3456-789a-bcdef0123456",
+            "description": "Yoga Mat",
+            "price": "29.99 £",
+            "promotions": [
+                {
+                    "type": "percentage",
+                    "value": "5%"
+                }
+            ],
+            "isFavorite": true,
+            "inStock": 60,
+            "image": "mat.png"
+        },
+        {
+            "productId": "543210ef-cdab-9876-5432-10abcdef0123",
+            "description": "Ceramic Mug Set",
+            "price": "12.75 £",
+            "promotions": [],
+            "isFavorite": false,
+            "inStock": 90,
+            "image": "mug.png"
+        }
+    ]
+}
