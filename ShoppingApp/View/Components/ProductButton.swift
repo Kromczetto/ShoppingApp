@@ -16,10 +16,11 @@ struct ProductButton: View {
             action()
         } label: {
             Text(sign)
-                .frame(width: 100, height: 40)
+                .frame(maxWidth: .infinity)
                 .foregroundStyle(.black)
                 .font(.system(size: 32))
         }
+        .buttonStyle(.plain)
         .background(Color(red: 1.0, green: 0.8, blue: 0.0, opacity: opacity))
     }
 }
