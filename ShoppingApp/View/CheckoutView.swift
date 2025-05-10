@@ -15,6 +15,15 @@ struct CheckoutView: View {
     
     var body: some View {
         if let products = browseViewModel.products {
+            HStack {
+                Spacer()
+                Text("Checkout")
+                    .bold()
+                Spacer()
+                Text("\(String(checkoutViewModel.totalPrice)) £")
+                    .bold()
+            }
+            .padding(10)
             List {
                 ForEach(products.items, id: \.productId) { product in
                     if checkoutViewModel.card[product.productId] != nil {

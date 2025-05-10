@@ -26,7 +26,7 @@ struct ProducktDescriptionView: View {
             }
             HStack(alignment: .center, spacing: 0) {
                 ProductButton(action: {
-                    checkoutViewModel.removeProductFromCard(id: id, amount: amount );
+                    checkoutViewModel.removeProductFromCard(id: id, amount: amount, price: price);
                     if amount > 0 { amount -= 1; };
                     checkoutViewModel.printCard()
                 }, sign: "-", opacity: 0.2)
@@ -35,7 +35,7 @@ struct ProducktDescriptionView: View {
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(.white)
                 ProductButton(action: {
-                    checkoutViewModel.addProductToCard(id: id);
+                    checkoutViewModel.addProductToCard(id: id, price: price);
                     amount += 1;
                     checkoutViewModel.printCard()
                 }, sign: "+", opacity: 0.8)

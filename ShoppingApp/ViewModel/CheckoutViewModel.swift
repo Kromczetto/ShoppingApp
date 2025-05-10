@@ -10,15 +10,31 @@ import Foundation
 class CheckoutViewModel: ObservableObject {
     @Published var card: [String: Int] = [:]
     @Published var alertString: String = ""
+    @Published var totalPrice: Double = 0
     
-    func addProductToCard(id: String) {
+    func addProductToCard(id: String, price: String) {
         if let val = card[id] {
             card[id] = val + 1
+            if let p = Double(String(price.dropLast(2))) {
+                totalPrice += p
+                totalPrice = (totalPrice * 100).rounded() / 100
+                print(p)
+            } else {
+                print("Cast problem")
+                print(String(price.dropLast(2)))
+            }
         } else {
             card[id] = 1
+            if let p = Double(String(price.dropLast(2))) {
+                totalPrice += p
+                totalPrice = (totalPrice * 100).rounded() / 100
+                print(p)
+            } else {
+                print("Cast problem")
+            }
         }
     }
-    func removeProductFromCard(id: String, amount: Int) {
+    func removeProductFromCard(id: String, amount: Int, price: String) {
         if amount == 0 {
             return
         }
@@ -28,9 +44,17 @@ class CheckoutViewModel: ObservableObject {
         }
         if exists - 1 == 0 {
             card.removeValue(forKey: id)
+            if let p = Double(String(price.dropLast(2))) {
+                totalPrice -= p
+                totalPrice = (totalPrice * 100).rounded() / 100
+            }
             return
         }
         card[id] = exists - 1
+        if let p = Double(String(price.dropLast(2))) {
+            totalPrice -= p
+            totalPrice = (totalPrice * 100).rounded() / 100
+        }
     }
     func prepairAlertString() {
         alertString = ""
