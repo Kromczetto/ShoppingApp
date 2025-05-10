@@ -15,20 +15,12 @@ struct BrowseView: View {
         if let products = browseViewModel.products {
             List {
                 ForEach(products.items, id: \.productId) { product in
-                    if let checkoutAmount = checkoutViewModel.card[product.productId] {
-                        ProductView(id: product.productId, description: product.description,
-                                    price: product.price, image: product.image,
-                                    favourite: product.isFavorite,
-                                    amount: checkoutAmount)
+                    ProductView(id: product.productId, description: product.description,
+                                price: product.price, image: product.image,
+                                favourite: product.isFavorite,
+                                amount: checkoutViewModel.card[product.productId] ?? 0)
                         .frame(height: 250)
                         .environmentObject(checkoutViewModel)
-                    } else {
-                        ProductView(id: product.productId, description: product.description,
-                                    price: product.price, image: product.image,
-                                    favourite: product.isFavorite)
-                        .frame(height: 250)
-                        .environmentObject(checkoutViewModel)
-                    }
                 }
             }
         } else {

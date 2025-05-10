@@ -25,7 +25,6 @@ class BrowseViewModel: ObservableObject {
         } catch {
             print(error.localizedDescription)
         }
-        
     }
     
     private func jsonParser(json: Data) {

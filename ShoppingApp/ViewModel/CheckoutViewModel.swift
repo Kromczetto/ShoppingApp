@@ -9,6 +9,7 @@ import Foundation
 
 class CheckoutViewModel: ObservableObject {
     @Published var card: [String: Int] = [:]
+    @Published var alertString: String = ""
     
     func addProductToCard(id: String) {
         if let val = card[id] {
@@ -30,6 +31,13 @@ class CheckoutViewModel: ObservableObject {
             return
         }
         card[id] = exists - 1
+    }
+    func prepairAlertString() {
+        alertString = ""
+        for i in card {
+            alertString += "\(i.key), "
+        }
+        alertString = String(alertString.dropLast(2))
     }
     //Function used to debug
     func printCard() {
