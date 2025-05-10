@@ -13,6 +13,7 @@ struct ProducktDescriptionView: View {
     @Binding var id: String
     @Binding var description: String
     @Binding var price: String
+    @Binding var maxOrder: Int
     
     var body: some View {
         VStack(spacing: 10) {
@@ -26,18 +27,18 @@ struct ProducktDescriptionView: View {
             }
             HStack(alignment: .center, spacing: 0) {
                 ProductButton(action: {
-                    var amount = checkoutViewModel.card[id] ?? 0
+                    var amount = checkoutViewModel.cart[id] ?? 0
                     checkoutViewModel.removeProductFromCard(id: id, amount: amount, price: price)
                     if amount > 0 { amount -= 1; };
                     checkoutViewModel.printCard()
                 }, sign: "-", opacity: 0.2)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                Text("\(checkoutViewModel.card[id] ?? 0)")
+                Text("\(checkoutViewModel.cart[id] ?? 0)")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(.white)
                 ProductButton(action: {
-                    var amount = checkoutViewModel.card[id] ?? 0
-                    checkoutViewModel.addProductToCard(id: id, price: price);
+                    var amount = checkoutViewModel.cart[id] ?? 0
+                    checkoutViewModel.addProductToCard(id: id, price: price, maxOrder: maxOrder);
                     amount += 1;
                     checkoutViewModel.printCard()
                 }, sign: "+", opacity: 0.8)

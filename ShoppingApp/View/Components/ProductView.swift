@@ -16,12 +16,14 @@ struct ProductView: View {
     @State var price: String = "10"
     @State var image: String = "bag.png"
     @State var favourite: Bool = true
-
+    @State var maxOrder: Int
+    
     var body: some View {
         HStack {
             ProductImageView(image: $image, favourite: $favourite)
             Spacer()
-            ProducktDescriptionView(id: $id, description: $description, price: $price)
+            ProducktDescriptionView(id: $id, description: $description,
+                                    price: $price, maxOrder: $maxOrder)
                 .environmentObject(checkoutViewModel)
         }
         .frame(height: 200)
@@ -29,7 +31,7 @@ struct ProductView: View {
 }
 
 #Preview {
-    ProductView()
+    ProductView(maxOrder: 5)
         .environmentObject(BrowseViewModel())
         .environmentObject(CheckoutViewModel())
 }
