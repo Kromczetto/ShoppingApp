@@ -18,9 +18,12 @@ struct ProducktDescriptionView: View {
         VStack(spacing: 10) {
             Text(description)
             Spacer()
-            Text(price)
-                .foregroundStyle(.red)
-                .font(.system(size: 24))
+            HStack {
+                Text(price)
+                    .foregroundStyle(.red)
+                    .font(.system(size: 24))
+                Spacer()
+            }
             HStack(alignment: .center, spacing: 0) {
                 ProductButton(action: {
                     checkoutViewModel.removeProductFromCard(id: id, amount: amount );

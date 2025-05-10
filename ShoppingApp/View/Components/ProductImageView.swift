@@ -12,10 +12,15 @@ struct ProductImageView: View {
     @Binding var favourite: Bool
     var body: some View {
         VStack(alignment: .leading, spacing: 8) {
-            Image(systemName: favourite ? "heart.fill" : "heart")
-                .frame(height: 5, alignment: .leading)
-                .padding([.leading], 10)
-                .padding([.top],10)
+            Button {
+                favourite.toggle()
+            } label: {
+                Image(systemName: favourite ? "heart.fill" : "heart")
+                    .frame(height: 5, alignment: .leading)
+                    .padding([.leading], 10)
+                    .padding([.top],10)
+            }
+            .buttonStyle(.plain)
             if let img = UIImage(named: image) {
                 Image(uiImage: img)
                     .resizable()
