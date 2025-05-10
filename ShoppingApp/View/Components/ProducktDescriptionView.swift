@@ -2,7 +2,7 @@
 //  ProducktDescriptionView.swift
 //  ShoppingApp
 //
-//  Created by Kuba Kromomołowski on 09/05/2025.
+//  Created by Kuba Kromołowski on 09/05/2025.
 //
 
 import SwiftUI
@@ -13,7 +13,7 @@ struct ProducktDescriptionView: View {
     @Binding var id: String
     @Binding var description: String
     @Binding var price: String
-    @Binding var amount: Int
+    
     var body: some View {
         VStack(spacing: 10) {
             Text(description)
@@ -26,15 +26,17 @@ struct ProducktDescriptionView: View {
             }
             HStack(alignment: .center, spacing: 0) {
                 ProductButton(action: {
-                    checkoutViewModel.removeProductFromCard(id: id, amount: amount, price: price);
+                    var amount = checkoutViewModel.card[id] ?? 0
+                    checkoutViewModel.removeProductFromCard(id: id, amount: amount, price: price)
                     if amount > 0 { amount -= 1; };
                     checkoutViewModel.printCard()
                 }, sign: "-", opacity: 0.2)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
-                Text("\(amount)")
+                Text("\(checkoutViewModel.card[id] ?? 0)")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(.white)
                 ProductButton(action: {
+                    var amount = checkoutViewModel.card[id] ?? 0
                     checkoutViewModel.addProductToCard(id: id, price: price);
                     amount += 1;
                     checkoutViewModel.printCard()

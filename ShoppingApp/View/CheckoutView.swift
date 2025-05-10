@@ -29,8 +29,7 @@ struct CheckoutView: View {
                     if checkoutViewModel.card[product.productId] != nil {
                         ProductView(id: product.productId, description: product.description,
                                     price: product.price, image: product.image,
-                                    favourite: product.isFavorite,
-                                    amount: checkoutViewModel.card[product.productId] ?? 0)
+                                    favourite: product.isFavorite)
                             .frame(height: 250)
                             .environmentObject(checkoutViewModel)
                     }
@@ -68,4 +67,6 @@ struct CheckoutView: View {
 
 #Preview {
     CheckoutView()
+        .environmentObject(BrowseViewModel())
+        .environmentObject(CheckoutViewModel())
 }

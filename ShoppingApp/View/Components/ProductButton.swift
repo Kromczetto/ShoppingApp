@@ -2,7 +2,7 @@
 //  ProductButton.swift
 //  ShoppingApp
 //
-//  Created by Kuba Kromomołowski on 09/05/2025.
+//  Created by Kuba Kromołowski on 09/05/2025.
 //
 
 import SwiftUI

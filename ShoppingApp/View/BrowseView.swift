@@ -26,8 +26,7 @@ struct BrowseView: View {
                 ForEach(products.items, id: \.productId) { product in
                     ProductView(id: product.productId, description: product.description,
                                 price: product.price, image: product.image,
-                                favourite: product.isFavorite,
-                                amount: checkoutViewModel.card[product.productId] ?? 0)
+                                favourite: product.isFavorite)
                         .frame(height: 250)
                         .environmentObject(checkoutViewModel)
                 }
@@ -44,4 +43,6 @@ struct BrowseView: View {
 
 #Preview {
     BrowseView()
+        .environmentObject(BrowseViewModel())
+        .environmentObject(CheckoutViewModel())
 }
