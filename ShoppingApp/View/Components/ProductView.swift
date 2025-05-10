@@ -8,7 +8,10 @@
 import SwiftUI
 
 struct ProductView: View {
-    @State var description: String = "item sanjasj njkajk nsakn kjas"
+    @EnvironmentObject var checkoutViewModel: CheckoutViewModel
+    
+    @State var id: String = "0"
+    @State var description: String = "item with really long description"
     @State var price: String = "10"
     @State var image: String = "bag.png"
     @State var favourite: Bool = true
@@ -18,7 +21,9 @@ struct ProductView: View {
         HStack {
             ProductImageView(image: $image, favourite: $favourite)
             Spacer()
-            ProducktDescriptionView(description: $description, price: $price, amount: $amount)
+            ProducktDescriptionView(id: $id, description: $description,
+                                    price: $price, amount: $amount)
+                .environmentObject(checkoutViewModel)
         }
         .frame(height: 200)
     }

@@ -8,14 +8,27 @@
 import SwiftUI
 
 struct BrowseView: View {
-    @StateObject var browseViewModel = BrowseViewModel()
+    @EnvironmentObject var browseViewModel: BrowseViewModel
+    @EnvironmentObject var checkoutViewModel: CheckoutViewModel
     
     var body: some View {
         if let products = browseViewModel.products {
             List {
                 ForEach(products.items, id: \.productId) { product in
-                    ProductView(description: product.description, price: product.price, image: product.image, favourite: product.isFavorite)
+                    if let checkoutAmount = checkoutViewModel.card[product.productId] {
+                        ProductView(id: product.productId, description: product.description,
+                                    price: product.price, image: product.image,
+                                    favourite: product.isFavorite,
+                                    amount: checkoutAmount)
                         .frame(height: 250)
+                        .environmentObject(checkoutViewModel)
+                    } else {
+                        ProductView(id: product.productId, description: product.description,
+                                    price: product.price, image: product.image,
+                                    favourite: product.isFavorite)
+                        .frame(height: 250)
+                        .environmentObject(checkoutViewModel)
+                    }
                 }
             }
         } else {

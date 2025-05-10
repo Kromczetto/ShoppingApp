@@ -8,9 +8,14 @@
 import SwiftUI
 
 struct ContentView: View {
+    @StateObject var browseViewModel = BrowseViewModel()
+    @StateObject var checkoutViewModel = CheckoutViewModel()
+    
     var body: some View {
         VStack {
             MenuView()
+                .environmentObject(browseViewModel)
+                .environmentObject(checkoutViewModel)
         }
         .padding()
     }

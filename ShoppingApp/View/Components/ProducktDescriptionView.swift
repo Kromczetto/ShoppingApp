@@ -8,6 +8,9 @@
 import SwiftUI
 
 struct ProducktDescriptionView: View {
+    @EnvironmentObject var checkoutViewModel: CheckoutViewModel
+    
+    @Binding var id: String
     @Binding var description: String
     @Binding var price: String
     @Binding var amount: Int
@@ -19,12 +22,20 @@ struct ProducktDescriptionView: View {
                 .foregroundStyle(.red)
                 .font(.system(size: 24))
             HStack(alignment: .center, spacing: 0) {
-                ProductButton(action: { print("-") }, sign: "-", opacity: 0.2)
+                ProductButton(action: {
+                    checkoutViewModel.removeProductFromCard(id: id, amount: amount );
+                    if amount > 0 { amount -= 1; };
+                    checkoutViewModel.printCard()
+                }, sign: "-", opacity: 0.2)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                 Text("\(amount)")
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
                     .background(.white)
-                ProductButton(action: { print("+") }, sign: "+", opacity: 0.8)
+                ProductButton(action: {
+                    checkoutViewModel.addProductToCard(id: id);
+                    amount += 1;
+                    checkoutViewModel.printCard()
+                }, sign: "+", opacity: 0.8)
                     .frame(maxWidth: .infinity, maxHeight: .infinity)
             }.frame(height: 40)
         }

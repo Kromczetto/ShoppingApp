@@ -8,11 +8,16 @@
 import SwiftUI
 
 struct MenuView: View {
+    @EnvironmentObject var browseViewModel: BrowseViewModel
+    @EnvironmentObject var checkoutViewModel: CheckoutViewModel
+    
     @State private var index: Int = 0
     var body: some View {
         TabView (selection: $index) {
             NavigationView {
                 BrowseView()
+                    .environmentObject(browseViewModel)
+                    .environmentObject(checkoutViewModel)
             }
             .tabItem {
                 Label("Browse",  systemImage: "square.grid.3x3")
@@ -20,6 +25,8 @@ struct MenuView: View {
             .tag(0)
             NavigationView {
                 CheckoutView()
+                    .environmentObject(browseViewModel)
+                    .environmentObject(checkoutViewModel)
             }
             .tabItem {
                 Label("Browse",  systemImage: "clock.fill")

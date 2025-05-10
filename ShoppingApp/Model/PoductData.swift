@@ -22,5 +22,5 @@ struct ProductData: Codable {
 }
 
 struct Products: Codable {
-    let items: [ProductData]
+    var items: [ProductData]
 }
