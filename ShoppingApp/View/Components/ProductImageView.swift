@@ -20,6 +20,7 @@ struct ProductImageView: View {
                     .padding([.leading], 10)
                     .padding([.top],10)
             }
+            .accessibilityLabel(favourite ? "Remove from favourites" : "Add to favourites")
             .buttonStyle(.plain)
             if let img = UIImage(named: image) {
                 Image(uiImage: img)
@@ -29,6 +30,7 @@ struct ProductImageView: View {
                     .padding([.leading], 40)
                     .padding([.top],-15)
                     .padding([.bottom],10)
+                    .accessibilityLabel("Product image")
             }
         }
     }

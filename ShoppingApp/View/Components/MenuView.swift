@@ -21,6 +21,7 @@ struct MenuView: View {
             }
             .tabItem {
                 Label("Browse",  systemImage: "square.grid.3x3")
+                    .accessibilityLabel("Browse product")
             }
             .tag(0)
             NavigationView {
@@ -29,7 +30,8 @@ struct MenuView: View {
                     .environmentObject(checkoutViewModel)
             }
             .tabItem {
-                Label("Browse",  systemImage: "clock.fill")
+                Label("Checkout",  systemImage: "clock.fill")
+                    .accessibilityLabel("View your cart and checkout")
             }
             .tag(1)
         }
